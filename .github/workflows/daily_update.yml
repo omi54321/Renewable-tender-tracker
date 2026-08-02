@@ -1,33 +1,46 @@
-name: Daily Renewable Tender Update
+name: V13 Daily Renewable Tender Update
 
 on:
   workflow_dispatch:
     inputs:
       dry_run:
-        description: "Run without modifying workbook"
-        required: false
+        description: "Run scans and tests without modifying the workbook"
+        required: true
         default: true
         type: boolean
+
   schedule:
+    # Runs daily at 08:00 IST, which is 02:30 UTC.
     - cron: "30 2 * * *"
+
   push:
+    branches:
+      - main
     paths:
       - "Python/**"
       - "Config/**"
+      - "tests/**"
       - "requirements.txt"
+      - "pytest.ini"
       - ".github/workflows/daily_update.yml"
 
 permissions:
   contents: write
 
 concurrency:
-  group: renewable-tender-daily-update
+  group: renewable-tender-v13
   cancel-in-progress: false
 
 jobs:
   update:
+    name: Update renewable tender tracker
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
+
+    env:
+      PYTHONUNBUFFERED: "1"
+      PYTHONPATH: ${{ github.workspace }}
+      WORKBOOK_PATH: "Output/Renewable_Tender_Tracker_V13.xlsx"
 
     steps:
       - name: Checkout repository
@@ -42,53 +55,145 @@ jobs:
           cache: "pip"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
 
-      - name: Run tests
-        run: pytest -q
-
-      - name: Run tender update
+      - name: Prepare runtime folders
         shell: bash
         run: |
-          if [[ "${{ github.event.inputs.dry_run }}" == "true" ]]; then
-            python -m Python.daily_update --dry-run
-          else
-            python -m Python.daily_update
+          mkdir -p Logs
+          mkdir -p backups
+          mkdir -p Data/raw
+          mkdir -p Data/snapshots
+          mkdir -p Data/history
+          mkdir -p Output
+
+      - name: Confirm workbook exists
+        shell: bash
+        run: |
+          echo "Looking for workbook at: $WORKBOOK_PATH"
+
+          if [[ ! -f "$WORKBOOK_PATH" ]]; then
+            echo "::error::Workbook was not found at $WORKBOOK_PATH"
+            echo "Files currently in Output:"
+            ls -la Output || true
+            exit 1
           fi
 
-      - name: Upload logs and workbook
+          ls -lh "$WORKBOOK_PATH"
+
+      - name: Run quality tests
+        run: python -m pytest -q
+
+      - name: Determine run mode
+        id: mode
+        shell: bash
+        run: |
+          EVENT_NAME="${{ github.event_name }}"
+
+          if [[ "$EVENT_NAME" == "push" ]]; then
+            DRY_RUN="true"
+          elif [[ "$EVENT_NAME" == "schedule" ]]; then
+            DRY_RUN="false"
+          elif [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
+            DRY_RUN="${{ github.event.inputs.dry_run }}"
+          else
+            DRY_RUN="true"
+          fi
+
+          echo "GitHub event: $EVENT_NAME"
+          echo "Dry-run mode: $DRY_RUN"
+          echo "dry_run=$DRY_RUN" >> "$GITHUB_OUTPUT"
+
+      - name: Run tender update in dry-run mode
+        if: ${{ steps.mode.outputs.dry_run == 'true' }}
+        shell: bash
+        run: |
+          echo "Starting dry run. The workbook will not be modified."
+
+          python -m Python.daily_update \
+            --workbook "$WORKBOOK_PATH" \
+            --agencies "Config/agencies.json" \
+            --rules "Config/scope_rules.json" \
+            --dry-run
+
+      - name: Run tender update in live mode
+        if: ${{ steps.mode.outputs.dry_run == 'false' }}
+        shell: bash
+        run: |
+          echo "Starting live update."
+
+          python -m Python.daily_update \
+            --workbook "$WORKBOOK_PATH" \
+            --agencies "Config/agencies.json" \
+            --rules "Config/scope_rules.json"
+
+      - name: Show generated diagnostics
+        if: always()
+        shell: bash
+        run: |
+          echo "Logs directory:"
+          find Logs -maxdepth 2 -type f -print 2>/dev/null || true
+
+          if [[ -f "Logs/latest_run.json" ]]; then
+            echo "Latest run report:"
+            cat "Logs/latest_run.json"
+          else
+            echo "::warning::Logs/latest_run.json was not generated."
+          fi
+
+          if [[ -f "Logs/connector_health.json" ]]; then
+            echo "Connector health report:"
+            cat "Logs/connector_health.json"
+          else
+            echo "::warning::Logs/connector_health.json was not generated."
+          fi
+
+      - name: Upload workbook and diagnostics
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: renewable-tender-tracker-${{ github.run_number }}
+          name: renewable-tender-tracker-v13-${{ github.run_number }}
           path: |
-            Output/Renewable_Tender_Tracker_V12.xlsx
+            Output/Renewable_Tender_Tracker_V13.xlsx
             Logs/
             backups/
+          if-no-files-found: warn
           retention-days: 30
 
-      - name: Commit updated workbook and logs
-        if: ${{ github.event.inputs.dry_run != 'true' }}
+      - name: Commit live workbook update
+        if: ${{ success() && steps.mode.outputs.dry_run == 'false' }}
         shell: bash
         run: |
           git config user.name "renewable-tender-bot"
           git config user.email "renewable-tender-bot@users.noreply.github.com"
-          git add Output/Renewable_Tender_Tracker_V12.xlsx Logs/ backups/ Data/
+
+          git add -A Output Logs backups Data
+
           if git diff --cached --quiet; then
-            echo "No workbook changes detected."
+            echo "No workbook or log changes were detected."
           else
-            git commit -m "Automated tender update $(date -u +'%Y-%m-%d')"
-            git push
+            git commit -m "Automated tender update $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push origin HEAD:main
           fi
 
       - name: Write workflow summary
+        if: always()
         shell: bash
         run: |
-          echo "## Renewable Tender Tracker V12" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Schedule: daily at 08:00 IST" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Workbook: \`Output/Renewable_Tender_Tracker_V12.xlsx\`" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Scope: >=100 MW; no rooftop, KUSUM, EPC, supply/install or O&M-only tenders" >> "$GITHUB_STEP_SUMMARY"
-          if [ -f Logs/latest_run.json ]; then
+          echo "## V13 Renewable Tender Update" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Event: \`${{ github.event_name }}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Dry run: \`${{ steps.mode.outputs.dry_run }}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Workbook: \`$WORKBOOK_PATH\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Minimum eligible capacity: **100 MW**" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Rooftop, PM-KUSUM, EPC, supply/installation and O&M-only tenders: **excluded**" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+
+          if [[ -f "Logs/latest_run.json" ]]; then
+            echo "### Latest run report" >> "$GITHUB_STEP_SUMMARY"
             echo '```json' >> "$GITHUB_STEP_SUMMARY"
-            cat Logs/latest_run.json >> "$GITHUB_STEP_SUMMARY"
+            cat "Logs/latest_run.json" >> "$GITHUB_STEP_SUMMARY"
             echo '```' >> "$GITHUB_STEP_SUMMARY"
           fi
