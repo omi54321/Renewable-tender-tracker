@@ -1,0 +1,27 @@
+{
+  "confidence_thresholds": {
+    "auto_accept": 0.9,
+    "review": 0.65,
+    "reject_below": 0.35
+  },
+  "percentage_range": [
+    0,
+    100
+  ],
+  "fields": [
+    "Minimum Annual PLF %",
+    "Minimum Monthly PLF %",
+    "Minimum CUF %",
+    "Declared CUF Lower %",
+    "Declared CUF Upper %",
+    "Annual Availability %",
+    "Monthly Availability %",
+    "Peak Supply MWh/MW/Day",
+    "Allowed Shortfall %",
+    "Under-Supply Penalty",
+    "External Energy Allowed",
+    "Maximum External Energy %",
+    "Charging Conditions"
+  ],
+  "no_inference_policy": true
+}
