@@ -1,0 +1,93 @@
+name: V13 Daily Renewable Tender Update
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Run scans and tests without updating the workbook"
+        required: false
+        default: true
+        type: boolean
+  schedule:
+    - cron: "30 2 * * *"
+  push:
+    paths:
+      - "Python/**"
+      - "Config/**"
+      - "tests/**"
+      - "requirements.txt"
+      - ".github/workflows/daily_update.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: renewable-tender-v13
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run quality tests
+        run: pytest -q
+
+      - name: Run connectors and workbook update
+        shell: bash
+        run: |
+          if [[ "${{ github.event.inputs.dry_run }}" == "true" ]]; then
+            python -m Python.daily_update --dry-run
+          else
+            python -m Python.daily_update
+          fi
+
+      - name: Upload workbook and diagnostics
+        uses: actions/upload-artifact@v4
+        with:
+          name: renewable-tender-tracker-v13-${{ github.run_number }}
+          path: |
+            Output/Renewable_Tender_Tracker_V13.xlsx
+            Logs/
+            backups/
+          retention-days: 30
+
+      - name: Commit updated workbook
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          git config user.name "renewable-tender-bot"
+          git config user.email "renewable-tender-bot@users.noreply.github.com"
+          git add Output/Renewable_Tender_Tracker_V13.xlsx Logs/ backups/ Data/
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "V13 automated tender update $(date -u +'%Y-%m-%d')"
+            git push
+          fi
+
+      - name: Publish summary
+        run: |
+          echo "## V13 Renewable Tender Update" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Scope: >=100 MW utility-scale power/storage procurement" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Dedicated agency modules: 31" >> "$GITHUB_STEP_SUMMARY"
+          echo "- PLF/CUF/availability tests: completed" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f Logs/latest_run.json ]; then
+            echo '```json' >> "$GITHUB_STEP_SUMMARY"
+            cat Logs/latest_run.json >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          fi
