@@ -1,0 +1,369 @@
+[
+  {
+    "agency": "SECI",
+    "module": "seci",
+    "source_url": "https://www.seci.co.in/tenders/",
+    "started": "2026-08-03T05:56:46.687613",
+    "finished": "2026-08-03T05:56:48.416582",
+    "records_found": 7,
+    "accepted": 7,
+    "status": "Success",
+    "errors": []
+  },
+  {
+    "agency": "NTPC REL",
+    "module": "ntpc_rel",
+    "source_url": "https://ntpctender.ntpc.co.in/Index/Search?Region=10&Type=Reg",
+    "started": "2026-08-03T05:56:48.417000",
+    "finished": "2026-08-03T05:56:49.856327",
+    "records_found": 1,
+    "accepted": 1,
+    "status": "Success",
+    "errors": []
+  },
+  {
+    "agency": "NHPC",
+    "module": "nhpc",
+    "source_url": "https://www.nhpcindia.com/welcome/tender.html",
+    "started": "2026-08-03T05:56:49.856481",
+    "finished": "2026-08-03T05:57:07.313915",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Success",
+    "errors": []
+  },
+  {
+    "agency": "SJVN",
+    "module": "sjvn",
+    "source_url": "https://sjvn.nic.in/en/tender",
+    "started": "2026-08-03T05:57:07.314083",
+    "finished": "2026-08-03T05:57:27.081839",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Success",
+    "errors": []
+  },
+  {
+    "agency": "NLCIL",
+    "module": "nlcil",
+    "source_url": "https://www.nlcindia.in/",
+    "started": "2026-08-03T05:57:27.082004",
+    "finished": "2026-08-03T06:02:04.447591",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Failed",
+    "errors": [
+      "Unable to fetch https://www.nlcindia.in/: HTTPSConnectionPool(host='www.nlcindia.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.nlcindia.in', port=443) at 0x7f7e0c689910>, 'Connection to www.nlcindia.in timed out. (connect timeout=45)'))"
+    ]
+  },
+  {
+    "agency": "GUVNL (ISTS)",
+    "module": "guvnl_ists",
+    "source_url": "https://www.guvnl.com/",
+    "started": "2026-08-03T06:02:04.447649",
+    "finished": "2026-08-03T06:02:14.851127",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Failed",
+    "errors": [
+      "Unable to fetch https://www.guvnl.com/: HTTPSConnectionPool(host='www.guvnl.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)')))"
+    ]
+  },
+  {
+    "agency": "REMCL",
+    "module": "remcl",
+    "source_url": "https://www.remcl.in/",
+    "started": "2026-08-03T06:02:14.851187",
+    "finished": "2026-08-03T06:04:37.087886",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Failed",
+    "errors": [
+      "Unable to fetch https://www.remcl.in/: HTTPSConnectionPool(host='www.remcl.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.remcl.in', port=443) at 0x7f7e0c689160>, 'Connection to www.remcl.in timed out. (connect timeout=45)'))"
+    ]
+  },
+  {
+    "agency": "RUVNL",
+    "module": "ruvnl",
+    "source_url": "https://eproc.rajasthan.gov.in/nicgep/app",
+    "started": "2026-08-03T06:04:37.087986",
+    "finished": "2026-08-03T06:04:39.459787",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Success",
+    "errors": []
+  },
+  {
+    "agency": "RVPN",
+    "module": "rvpn",
+    "source_url": "https://energy.rajasthan.gov.in/rvpnl",
+    "started": "2026-08-03T06:04:39.459947",
+    "finished": "2026-08-03T06:04:40.737248",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Success",
+    "errors": []
+  },
+  {
+    "agency": "KREDL",
+    "module": "kredl",
+    "source_url": "https://kppp.karnataka.gov.in/",
+    "started": "2026-08-03T06:04:40.737379",
+    "finished": "2026-08-03T06:04:42.352878",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Success",
+    "errors": []
+  },
+  {
+    "agency": "KPTCL",
+    "module": "kptcl",
+    "source_url": "https://kptcl.karnataka.gov.in/",
+    "started": "2026-08-03T06:04:42.353018",
+    "finished": "2026-08-03T06:07:05.877005",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Failed",
+    "errors": [
+      "Unable to fetch https://kptcl.karnataka.gov.in/: HTTPSConnectionPool(host='kptcl.karnataka.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='kptcl.karnataka.gov.in', port=443) at 0x7f7e0c58f6e0>, 'Connection to kptcl.karnataka.gov.in timed out. (connect timeout=45)'))"
+    ]
+  },
+  {
+    "agency": "KPCL",
+    "module": "kpcl",
+    "source_url": "https://karnatakapower.com/",
+    "started": "2026-08-03T06:07:05.877079",
+    "finished": "2026-08-03T06:07:13.763739",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Failed",
+    "errors": [
+      "Unable to fetch https://karnatakapower.com/: HTTPSConnectionPool(host='karnatakapower.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'karnatakapower.com'. (_ssl.c:1010)\")))"
+    ]
+  },
+  {
+    "agency": "MPUVNL",
+    "module": "mpuvnl",
+    "source_url": "https://mptenders.gov.in/nicgep/app",
+    "started": "2026-08-03T06:07:13.763805",
+    "finished": "2026-08-03T06:07:16.068928",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Success",
+    "errors": []
+  },
+  {
+    "agency": "MPPMCL",
+    "module": "mppmcl",
+    "source_url": "https://mppmcl.com/",
+    "started": "2026-08-03T06:07:16.069073",
+    "finished": "2026-08-03T06:07:16.952668",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Success",
+    "errors": []
+  },
+  {
+    "agency": "MP Urja Vikas Nigam",
+    "module": "mp_urja",
+    "source_url": "https://www.mprenewable.nic.in/",
+    "started": "2026-08-03T06:07:16.952815",
+    "finished": "2026-08-03T06:07:24.827462",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Failed",
+    "errors": [
+      "Unable to fetch https://www.mprenewable.nic.in/: HTTPSConnectionPool(host='www.mprenewable.nic.in', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.mprenewable.nic.in', port=443): Failed to resolve 'www.mprenewable.nic.in' ([Errno -2] Name or service not known)\"))"
+    ]
+  },
+  {
+    "agency": "MSEDCL",
+    "module": "msedcl",
+    "source_url": "https://www.mahadiscom.in/en/supplier/tenders/",
+    "started": "2026-08-03T06:07:24.827528",
+    "finished": "2026-08-03T06:07:30.833149",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Success",
+    "errors": []
+  },
+  {
+    "agency": "MAHAGENCO",
+    "module": "mahagenco",
+    "source_url": "https://www.mahagenco.in/",
+    "started": "2026-08-03T06:07:30.833310",
+    "finished": "2026-08-03T06:07:33.118419",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Success",
+    "errors": []
+  },
+  {
+    "agency": "GUVNL",
+    "module": "guvnl",
+    "source_url": "https://www.guvnl.com/",
+    "started": "2026-08-03T06:07:33.118578",
+    "finished": "2026-08-03T06:07:43.336584",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Failed",
+    "errors": [
+      "Unable to fetch https://www.guvnl.com/: HTTPSConnectionPool(host='www.guvnl.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)')))"
+    ]
+  },
+  {
+    "agency": "GPCL",
+    "module": "gpcl",
+    "source_url": "https://gpcl.gujarat.gov.in/",
+    "started": "2026-08-03T06:07:43.336664",
+    "finished": "2026-08-03T06:10:06.428085",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Failed",
+    "errors": [
+      "Unable to fetch https://gpcl.gujarat.gov.in/: HTTPSConnectionPool(host='gpcl.gujarat.gov.in', port=443): Read timed out. (read timeout=45)"
+    ]
+  },
+  {
+    "agency": "APSPDCL",
+    "module": "apspdcl",
+    "source_url": "https://www.apspdcl.in/",
+    "started": "2026-08-03T06:10:06.428157",
+    "finished": "2026-08-03T06:10:07.701060",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Success",
+    "errors": []
+  },
+  {
+    "agency": "APGENCO",
+    "module": "apgenco",
+    "source_url": "https://apgenco.gov.in/",
+    "started": "2026-08-03T06:10:07.701200",
+    "finished": "2026-08-03T06:10:40.581677",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Success",
+    "errors": []
+  },
+  {
+    "agency": "NREDCAP",
+    "module": "nredcap",
+    "source_url": "https://nredcap.in/",
+    "started": "2026-08-03T06:10:40.581838",
+    "finished": "2026-08-03T06:10:49.678115",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Failed",
+    "errors": [
+      "Unable to fetch https://nredcap.in/: HTTPSConnectionPool(host='nredcap.in', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))"
+    ]
+  },
+  {
+    "agency": "TGNPDCL",
+    "module": "tgnpdcl",
+    "source_url": "https://tgnpdcl.com/",
+    "started": "2026-08-03T06:10:49.678173",
+    "finished": "2026-08-03T06:10:58.631988",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Failed",
+    "errors": [
+      "Unable to fetch https://tgnpdcl.com/: HTTPSConnectionPool(host='tgnpdcl.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure (_ssl.c:1010)')))"
+    ]
+  },
+  {
+    "agency": "TSSPDCL",
+    "module": "tsspdcl",
+    "source_url": "https://www.tssouthernpower.com/",
+    "started": "2026-08-03T06:10:58.632048",
+    "finished": "2026-08-03T06:10:59.380283",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Success",
+    "errors": []
+  },
+  {
+    "agency": "TNGECL",
+    "module": "tngecl",
+    "source_url": "https://www.tangedco.gov.in/",
+    "started": "2026-08-03T06:10:59.380433",
+    "finished": "2026-08-03T06:11:36.432103",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Failed",
+    "errors": [
+      "Unable to fetch https://www.tangedco.gov.in/: HTTPSConnectionPool(host='www.tangedco.gov.in', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.tangedco.gov.in', port=443): Failed to resolve 'www.tangedco.gov.in' ([Errno -3] Temporary failure in name resolution)\"))"
+    ]
+  },
+  {
+    "agency": "TANTRANSCO",
+    "module": "tantransco",
+    "source_url": "https://www.tantransco.gov.in/",
+    "started": "2026-08-03T06:11:36.432156",
+    "finished": "2026-08-03T06:12:13.516472",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Failed",
+    "errors": [
+      "Unable to fetch https://www.tantransco.gov.in/: HTTPSConnectionPool(host='www.tantransco.gov.in', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPSConnection(host='www.tantransco.gov.in', port=443): Failed to resolve 'www.tantransco.gov.in' ([Errno -3] Temporary failure in name resolution)\"))"
+    ]
+  },
+  {
+    "agency": "GRIDCO",
+    "module": "gridco",
+    "source_url": "https://www.gridco.co.in/tender.aspx",
+    "started": "2026-08-03T06:12:13.516525",
+    "finished": "2026-08-03T06:12:15.375352",
+    "records_found": 4,
+    "accepted": 4,
+    "status": "Success",
+    "errors": []
+  },
+  {
+    "agency": "HAREDA",
+    "module": "hareda",
+    "source_url": "https://hareda.gov.in/",
+    "started": "2026-08-03T06:12:15.375490",
+    "finished": "2026-08-03T06:12:17.855647",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Success",
+    "errors": []
+  },
+  {
+    "agency": "PSPCL",
+    "module": "pspcl",
+    "source_url": "https://pspcl.in/tenders",
+    "started": "2026-08-03T06:12:17.855796",
+    "finished": "2026-08-03T06:12:21.480341",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Success",
+    "errors": []
+  },
+  {
+    "agency": "UPNEDA",
+    "module": "upneda",
+    "source_url": "https://upneda.org.in/",
+    "started": "2026-08-03T06:12:21.480490",
+    "finished": "2026-08-03T06:14:43.858329",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Failed",
+    "errors": [
+      "Unable to fetch https://upneda.org.in/: HTTPSConnectionPool(host='upneda.org.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='upneda.org.in', port=443) at 0x7f7e09cf2270>, 'Connection to upneda.org.in timed out. (connect timeout=45)'))"
+    ]
+  },
+  {
+    "agency": "BSPHCL",
+    "module": "bsphcl",
+    "source_url": "https://www.bsphcl.co.in/",
+    "started": "2026-08-03T06:14:43.858397",
+    "finished": "2026-08-03T06:14:45.160362",
+    "records_found": 0,
+    "accepted": 0,
+    "status": "Success",
+    "errors": []
+  }
+]
