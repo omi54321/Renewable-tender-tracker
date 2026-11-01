@@ -15918,3 +15918,188 @@ RuntimeError: Unable to fetch https://www.tantransco.gov.in/: HTTPSConnectionPoo
 2026-10-31 08:53:35,834 INFO daily_update PSPCL: 0 accepted; Success
 2026-10-31 08:53:37,771 INFO daily_update UPNEDA: 0 accepted; Success
 2026-10-31 08:53:39,098 INFO daily_update BSPHCL: 0 accepted; Success
+2026-11-01 09:30:02,453 INFO daily_update SECI: 13 accepted; Success
+2026-11-01 09:30:03,778 INFO daily_update NTPC REL: 4 accepted; Success
+2026-11-01 09:30:17,571 INFO daily_update NHPC: 0 accepted; Success
+2026-11-01 09:30:19,716 INFO daily_update SJVN: 1 accepted; Success
+2026-11-01 09:34:57,028 ERROR connector.NLCIL Connector failed
+Traceback (most recent call last):
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 50, in run
+    result.records = self.parse(self.fetch())
+                                ^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 45, in fetch
+    return get_text(self.source_url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/core/http.py", line 21, in get_text
+    raise RuntimeError(f"Unable to fetch {url}: {last_error}")
+RuntimeError: Unable to fetch https://www.nlcindia.in/: HTTPSConnectionPool(host='www.nlcindia.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.nlcindia.in', port=443) at 0x7ff8c1ff84d0>, 'Connection to www.nlcindia.in timed out. (connect timeout=45)'))
+2026-11-01 09:34:57,028 INFO daily_update NLCIL: 0 accepted; Failed
+2026-11-01 09:35:07,027 ERROR connector.GUVNL (ISTS) Connector failed
+Traceback (most recent call last):
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 50, in run
+    result.records = self.parse(self.fetch())
+                                ^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 45, in fetch
+    return get_text(self.source_url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/core/http.py", line 21, in get_text
+    raise RuntimeError(f"Unable to fetch {url}: {last_error}")
+RuntimeError: Unable to fetch https://www.guvnl.com/: HTTPSConnectionPool(host='www.guvnl.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)')))
+2026-11-01 09:35:07,028 INFO daily_update GUVNL (ISTS): 0 accepted; Failed
+2026-11-01 09:37:29,256 ERROR connector.REMCL Connector failed
+Traceback (most recent call last):
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 50, in run
+    result.records = self.parse(self.fetch())
+                                ^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 45, in fetch
+    return get_text(self.source_url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/core/http.py", line 21, in get_text
+    raise RuntimeError(f"Unable to fetch {url}: {last_error}")
+RuntimeError: Unable to fetch https://www.remcl.in/: HTTPSConnectionPool(host='www.remcl.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.remcl.in', port=443) at 0x7ff8c1ff8350>, 'Connection to www.remcl.in timed out. (connect timeout=45)'))
+2026-11-01 09:37:29,256 INFO daily_update REMCL: 0 accepted; Failed
+2026-11-01 09:37:30,847 INFO daily_update RUVNL: 0 accepted; Success
+2026-11-01 09:39:53,680 ERROR connector.RVPN Connector failed
+Traceback (most recent call last):
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 50, in run
+    result.records = self.parse(self.fetch())
+                                ^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 45, in fetch
+    return get_text(self.source_url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/core/http.py", line 21, in get_text
+    raise RuntimeError(f"Unable to fetch {url}: {last_error}")
+RuntimeError: Unable to fetch https://energy.rajasthan.gov.in/rvpnl: HTTPSConnectionPool(host='energy.rajasthan.gov.in', port=443): Max retries exceeded with url: /rvpnl (Caused by ConnectTimeoutError(<HTTPSConnection(host='energy.rajasthan.gov.in', port=443) at 0x7ff8c1f04860>, 'Connection to energy.rajasthan.gov.in timed out. (connect timeout=45)'))
+2026-11-01 09:39:53,680 INFO daily_update RVPN: 0 accepted; Failed
+2026-11-01 09:39:54,634 INFO daily_update KREDL: 0 accepted; Success
+2026-11-01 09:42:17,978 ERROR connector.KPTCL Connector failed
+Traceback (most recent call last):
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 50, in run
+    result.records = self.parse(self.fetch())
+                                ^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 45, in fetch
+    return get_text(self.source_url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/core/http.py", line 21, in get_text
+    raise RuntimeError(f"Unable to fetch {url}: {last_error}")
+RuntimeError: Unable to fetch https://kptcl.karnataka.gov.in/: HTTPSConnectionPool(host='kptcl.karnataka.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='kptcl.karnataka.gov.in', port=443) at 0x7ff8c1f05e20>, 'Connection to kptcl.karnataka.gov.in timed out. (connect timeout=45)'))
+2026-11-01 09:42:17,978 INFO daily_update KPTCL: 0 accepted; Failed
+2026-11-01 09:42:25,976 ERROR connector.KPCL Connector failed
+Traceback (most recent call last):
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 50, in run
+    result.records = self.parse(self.fetch())
+                                ^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 45, in fetch
+    return get_text(self.source_url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/core/http.py", line 21, in get_text
+    raise RuntimeError(f"Unable to fetch {url}: {last_error}")
+RuntimeError: Unable to fetch https://karnatakapower.com/: HTTPSConnectionPool(host='karnatakapower.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'karnatakapower.com'. (_ssl.c:1010)")))
+2026-11-01 09:42:25,976 INFO daily_update KPCL: 0 accepted; Failed
+2026-11-01 09:42:27,930 INFO daily_update MPUVNL: 0 accepted; Success
+2026-11-01 09:42:28,360 INFO daily_update MPPMCL: 0 accepted; Success
+2026-11-01 09:42:36,108 ERROR connector.MP Urja Vikas Nigam Connector failed
+Traceback (most recent call last):
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 50, in run
+    result.records = self.parse(self.fetch())
+                                ^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 45, in fetch
+    return get_text(self.source_url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/core/http.py", line 21, in get_text
+    raise RuntimeError(f"Unable to fetch {url}: {last_error}")
+RuntimeError: Unable to fetch https://www.mprenewable.nic.in/: HTTPSConnectionPool(host='www.mprenewable.nic.in', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("HTTPSConnection(host='www.mprenewable.nic.in', port=443): Failed to resolve 'www.mprenewable.nic.in' ([Errno -2] Name or service not known)"))
+2026-11-01 09:42:36,108 INFO daily_update MP Urja Vikas Nigam: 0 accepted; Failed
+2026-11-01 09:42:40,535 INFO daily_update MSEDCL: 0 accepted; Success
+2026-11-01 09:42:42,013 INFO daily_update MAHAGENCO: 0 accepted; Success
+2026-11-01 09:42:51,957 ERROR connector.GUVNL Connector failed
+Traceback (most recent call last):
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 50, in run
+    result.records = self.parse(self.fetch())
+                                ^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 45, in fetch
+    return get_text(self.source_url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/core/http.py", line 21, in get_text
+    raise RuntimeError(f"Unable to fetch {url}: {last_error}")
+RuntimeError: Unable to fetch https://www.guvnl.com/: HTTPSConnectionPool(host='www.guvnl.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)')))
+2026-11-01 09:42:51,958 INFO daily_update GUVNL: 0 accepted; Failed
+2026-11-01 09:45:15,116 ERROR connector.GPCL Connector failed
+Traceback (most recent call last):
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 50, in run
+    result.records = self.parse(self.fetch())
+                                ^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 45, in fetch
+    return get_text(self.source_url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/core/http.py", line 21, in get_text
+    raise RuntimeError(f"Unable to fetch {url}: {last_error}")
+RuntimeError: Unable to fetch https://gpcl.gujarat.gov.in/: HTTPSConnectionPool(host='gpcl.gujarat.gov.in', port=443): Read timed out. (read timeout=45)
+2026-11-01 09:45:15,116 INFO daily_update GPCL: 0 accepted; Failed
+2026-11-01 09:45:16,172 INFO daily_update APSPDCL: 0 accepted; Success
+2026-11-01 09:45:24,831 INFO daily_update APGENCO: 0 accepted; Success
+2026-11-01 09:45:33,606 ERROR connector.NREDCAP Connector failed
+Traceback (most recent call last):
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 50, in run
+    result.records = self.parse(self.fetch())
+                                ^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 45, in fetch
+    return get_text(self.source_url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/core/http.py", line 21, in get_text
+    raise RuntimeError(f"Unable to fetch {url}: {last_error}")
+RuntimeError: Unable to fetch https://nredcap.in/: HTTPSConnectionPool(host='nredcap.in', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))
+2026-11-01 09:45:33,607 INFO daily_update NREDCAP: 0 accepted; Failed
+2026-11-01 09:45:42,063 ERROR connector.TGNPDCL Connector failed
+Traceback (most recent call last):
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 50, in run
+    result.records = self.parse(self.fetch())
+                                ^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 45, in fetch
+    return get_text(self.source_url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/core/http.py", line 21, in get_text
+    raise RuntimeError(f"Unable to fetch {url}: {last_error}")
+RuntimeError: Unable to fetch https://tgnpdcl.com/: HTTPSConnectionPool(host='tgnpdcl.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1010)')))
+2026-11-01 09:45:42,063 INFO daily_update TGNPDCL: 0 accepted; Failed
+2026-11-01 09:45:49,262 ERROR connector.TSSPDCL Connector failed
+Traceback (most recent call last):
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 50, in run
+    result.records = self.parse(self.fetch())
+                                ^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 45, in fetch
+    return get_text(self.source_url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/core/http.py", line 21, in get_text
+    raise RuntimeError(f"Unable to fetch {url}: {last_error}")
+RuntimeError: Unable to fetch https://www.tssouthernpower.com/: 403 Client Error: Forbidden for url: https://www.tssouthernpower.com/
+2026-11-01 09:45:49,262 INFO daily_update TSSPDCL: 0 accepted; Failed
+2026-11-01 09:46:51,886 ERROR connector.TNGECL Connector failed
+Traceback (most recent call last):
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 50, in run
+    result.records = self.parse(self.fetch())
+                                ^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 45, in fetch
+    return get_text(self.source_url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/core/http.py", line 21, in get_text
+    raise RuntimeError(f"Unable to fetch {url}: {last_error}")
+RuntimeError: Unable to fetch https://www.tangedco.gov.in/: HTTPSConnectionPool(host='www.tangedco.gov.in', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("HTTPSConnection(host='www.tangedco.gov.in', port=443): Failed to resolve 'www.tangedco.gov.in' ([Errno -3] Temporary failure in name resolution)"))
+2026-11-01 09:46:51,887 INFO daily_update TNGECL: 0 accepted; Failed
+2026-11-01 09:47:51,423 ERROR connector.TANTRANSCO Connector failed
+Traceback (most recent call last):
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 50, in run
+    result.records = self.parse(self.fetch())
+                                ^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/connectors/base.py", line 45, in fetch
+    return get_text(self.source_url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Renewable-tender-tracker/Renewable-tender-tracker/Python/core/http.py", line 21, in get_text
+    raise RuntimeError(f"Unable to fetch {url}: {last_error}")
+RuntimeError: Unable to fetch https://www.tantransco.gov.in/: HTTPSConnectionPool(host='www.tantransco.gov.in', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("HTTPSConnection(host='www.tantransco.gov.in', port=443): Failed to resolve 'www.tantransco.gov.in' ([Errno -3] Temporary failure in name resolution)"))
+2026-11-01 09:47:51,423 INFO daily_update TANTRANSCO: 0 accepted; Failed
+2026-11-01 09:47:52,981 INFO daily_update GRIDCO: 5 accepted; Success
+2026-11-01 09:47:54,843 INFO daily_update HAREDA: 0 accepted; Success
+2026-11-01 09:47:59,331 INFO daily_update PSPCL: 0 accepted; Success
+2026-11-01 09:48:01,046 INFO daily_update UPNEDA: 0 accepted; Success
+2026-11-01 09:48:02,267 INFO daily_update BSPHCL: 0 accepted; Success
